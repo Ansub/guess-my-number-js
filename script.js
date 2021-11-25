@@ -19,21 +19,11 @@ document.querySelector('.check').addEventListener('click', function () {
     if (score > highScore) {
       highscore = score;
       document.querySelector('.highscore').textContent = highscore;
-    }
-    // When the Guess is High
-  } else if (guess > secretNumber) {
+    } //when the guess is wrong
+  } else if (guess !== secretNumber) {
     if (score > 1) {
-      document.querySelector('.message').textContent = 'Too High';
-      score--;
-      document.querySelector('.score').textContent = score;
-    } else {
-      document.querySelector('.message').textContent = 'You Lost the Game!';
-      document.querySelector('.score').textContent = 0;
-    }
-    //  When the Guess is Low
-  } else if (guess < secretNumber) {
-    if (score > 1) {
-      document.querySelector('.message').textContent = 'Too Low';
+      document.querySelector('.message').textContent =
+        guess > secretNumber ? 'Too High' : 'Too Low';
       score--;
       document.querySelector('.score').textContent = score;
     } else {
